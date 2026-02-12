@@ -62,11 +62,17 @@ def checkmate(board: str) -> str:
     all_danger_moves = set() # ใช้ set เพื่อความเร็วและตัดตัวซ้ำ
 
     # 1. Check Pawns (P)
+    prawn_pos_list = get_all_pos(lines, "P")
+    if len(prawn_pos_list) > 8:
+        return "Error" # ต้องมี prawn ไม่เกิน 8 ตัว
     for px, py in get_all_pos(lines, "P"):
         for mx, my in get_possible_pawn_moves(px, py, size):
             all_danger_moves.add((mx, my))
 
     # 2. Check Rooks (R) - ใช้ Ray เหมือน Queen แต่ออก 4 ทิศ
+    rook_pos_list = get_all_pos(lines, "R")
+    if len(rook_pos_list) > 2:
+        return "Error" # ต้องมี rook ไม่เกิน 2 ตัวเท่านั้น
     for rx, ry in get_all_pos(lines, "R"):
         # บน, ล่าง, ซ้าย, ขวา
         for dx, dy in [(0, -1), (0, 1), (-1, 0), (1, 0)]:
@@ -74,6 +80,9 @@ def checkmate(board: str) -> str:
                 all_danger_moves.add(move)
 
     # 3. Check Bishops (B) - 4 ทิศทแยง
+    bishop_pos_list = get_all_pos(lines, "B")
+    if len(bishop_pos_list) > 2:
+        return "Error" # ต้องมี Bishop ไม่เกิน 2 ตัวเท่านั้น
     for bx, by in get_all_pos(lines, "B"):
         for dx, dy in [(-1, -1), (1, -1), (-1, 1), (1, 1)]:
             for move in ray(lines, bx, by, dx, dy, size):
@@ -82,7 +91,7 @@ def checkmate(board: str) -> str:
     # 4. Check Queens (Q) - 8 ทิศ
     queen_pos_list = get_all_pos(lines, "Q")
     if len(queen_pos_list) > 1:
-        return "Error"
+        return "Error" # ต้องมี Queen ไม่เกิน 1 ตัวเท่านั้น
     for qx, qy in get_all_pos(lines, "Q"):
         directions = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (1, -1), (-1, 1), (1, 1)]
         for dx, dy in directions:
