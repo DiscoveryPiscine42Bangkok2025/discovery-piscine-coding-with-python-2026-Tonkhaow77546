@@ -1,6 +1,6 @@
 first_name = "Petchpraethong"
 last_name = "Inuthai"
 
-combine = first_name + " " + last_name
+whole_name = first_name + " " + last_name
 
-print(combine)
+print(whole_name)
