@@ -40,7 +40,7 @@ K........"""
 
 
  # Test Case 6: Board not symetric ERROR
-    board5 =  """
+    board6 =  """
 ............
 ............
 ...........
@@ -50,8 +50,8 @@ K........"""
 .........
 .........
 K........"""
-
-    board6 = """
+    #testcase 7 : test multiple R B P
+    board7 = """
 RB.K....
 P.......
 ........
@@ -65,8 +65,9 @@ R.BQ...."""
     print(f"Board 2 (Expect Fail): {checkmate(board2)}")
     print(f"Board 3 (Expect Success): {checkmate(board3)}")
     print(f"Board 4 (Expect Fail): {checkmate(board4)}")
-    print(f"Board 5 (Expect Error): {checkmate(board5)}")
-    print(f"Board 6 (Expect Success): {checkmate(board6)}")
+    print(f"Board 5 (Expect Success): {checkmate(board5)}")
+    print(f"Board 6 (Expect Error): {checkmate(board6)}")
+    print(f"Board 7 (Expect Success): {checkmate(board7)}")
 
 if __name__ == "__main__":
     main()

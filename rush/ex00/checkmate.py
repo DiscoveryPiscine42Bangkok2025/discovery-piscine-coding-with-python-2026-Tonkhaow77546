@@ -80,6 +80,9 @@ def checkmate(board: str) -> str:
                 all_danger_moves.add(move)
 
     # 4. Check Queens (Q) - 8 ทิศ
+    queen_pos_list = get_all_pos(lines, "Q")
+    if len(queen_pos_list) > 1:
+        return "Error"
     for qx, qy in get_all_pos(lines, "Q"):
         directions = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (1, -1), (-1, 1), (1, 1)]
         for dx, dy in directions:
