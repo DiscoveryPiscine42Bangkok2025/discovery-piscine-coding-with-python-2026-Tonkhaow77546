@@ -61,6 +61,17 @@ P.......
 P......P
 R.BQ...."""
 
+    #testcase 8 : test multiple R B P but Q = 2 
+    board8 = """
+RB.K....
+P.......
+........
+........
+...Q....
+........
+P......P
+R.BQ...."""
+
     print(f"Board 1 (Expect Success): {checkmate(board1)}")
     print(f"Board 2 (Expect Fail): {checkmate(board2)}")
     print(f"Board 3 (Expect Success): {checkmate(board3)}")
@@ -68,6 +79,7 @@ R.BQ...."""
     print(f"Board 5 (Expect Success): {checkmate(board5)}")
     print(f"Board 6 (Expect Error): {checkmate(board6)}")
     print(f"Board 7 (Expect Success): {checkmate(board7)}")
+    print(f"Board 8 (Expect Error): {checkmate(board8)}")
 
 if __name__ == "__main__":
     main()
